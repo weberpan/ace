@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+  <title>Emmet for Ace</title>	
+  <style type="text/css" media="screen">
+    body {
+        overflow: hidden;
+    }
+
+    #editor {
+        margin: 0;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+  </style>
+</head>
+<body>
+
+<pre id="editor">function foo(items) {
+    var i;
+    for (i = 0; i &lt; items.length; i++) {
+        alert("Ace Rocks " + items[i]);
+    }
+}</pre>
+
+<script src="../../build/src/ace.js" charset="utf-8"></script>
+<script src="emmet.js"></script>
+<script src="editor.js"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/html");
+    require(["ace/requirejs/text!../..build/src/ace"], function(e){
+        editor.setValue(e);
+    })
+</script>
+
+</body>
+</html>
