@@ -142,7 +142,7 @@ AceEmmetEditor.prototype = {
 	setCaretPos: function(index){
         var pos = this.ace.posFromIndex(index);
         this.ace.clearSelection();
-        this.ace.selection.moveCursorToPosition();
+        this.ace.selection.moveCursorToPosition(pos);
     },
 	
 	/**
@@ -192,6 +192,7 @@ AceEmmetEditor.prototype = {
                 return ch;
             }
         });
+        console.log(value)
         value = tabstopData.text;
         var firstTabStop = tabstopData.tabstops[0];
         
@@ -215,7 +216,7 @@ AceEmmetEditor.prototype = {
         range.end = this.ace.posFromIndex(firstTabStop.end);
         this.ace.selection.setRange(range);
     },
-	
+	 
 	/**
 	 * Returns editor's content
 	 * @return {String}
@@ -304,3 +305,4 @@ function runEmmetCommand(name, editor) {
 
 
 // });
+
